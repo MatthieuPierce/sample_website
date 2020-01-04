@@ -73,6 +73,7 @@ h2 ~ p {
 .header {
   background-color: #000;
   color: #fff;
+  height: 10vh;
   position: fixed;
   width: 100%;
   z-index: 20;
@@ -97,7 +98,7 @@ h2 ~ p {
 }
 .header-nav {
   float: right;
-  padding: 5.5vh 60px 0 0;
+  padding: 3vh 60px 0vh 0vh;
 }
 .header-nav > li {
   display: inline-block;
@@ -152,10 +153,28 @@ h2 ~ p {
   color: #ccc;
 }
 
+.social-footer {
+}
+.social-footer li {
+  display: inline-block;
+  margin: 1em 1em;
+}
+
 /* HERO STYLES */
 .full-hero {
   background-color: #c7dbfc;
-  height: 50vh;
+  background-size: cover;
+  box-sizing: border-box;
+  height: 100vh;
+  padding-top: 10vh;
+}
+.hero-home {
+  background-image: url(/images/shark.jpg);
+  background-position: center top;
+}
+
+.hero-content {
+  /* placeholder */
 }
 
 /* SOCIAL STYLES */
