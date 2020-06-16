@@ -129,10 +129,12 @@ p {
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   padding-left: 1em;
 }
-.header-nav a {
+.header-nav a,
+.drop-trigger {
   color: #fff;
 }
-.nav-links a {
+.nav-links a,
+.drop-trigger {
   font-size: 0.8rem;
   font-weight: bold;
   text-decoration: none;
@@ -147,6 +149,121 @@ p {
 }
 .header-nav > li:first-child a:hover {
   color: #fff;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+  position: relative;
+}
+.dropdown:hover .drop-menu {
+  display: block;
+}
+.dropdown:hover .drop-trigger:after {
+  border-color: #ed6e2f transparent transparent;
+}
+.drop-trigger {
+  display: inline-block;
+  padding-right: 1.5em;
+  position: relative;
+}
+.drop-trigger:after {
+  border: 0.3em solid;
+  border-color: #fff transparent transparent;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 0.3em;
+  width: 0;
+}
+.drop-menu {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  display: none;
+  list-style: none;
+  padding: 1em 0 0;
+  position: absolute;
+  right: 0;
+  z-index: 9;
+}
+.drop-menu:before {
+  border: 0.6em solid;
+  border-color: transparent transparent #fff;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 1em;
+  top: -0.1em;
+  width: 0;
+}
+.drop-menu li {
+  background-color: #fff;
+}
+.drop-menu li ~ li {
+  border-top: 1px dotted rgba(0,0,0,0.1)
+}
+.drop-menu li:first-child {
+  border-radius: 5px 5px 0 0;
+  color: #999;
+  font-size: 0.5em;
+  padding: 1em 1em 0.25em;
+  text-align: right;
+  text-transform: uppercase;
+}
+.drop-menu li:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.drop-menu a {
+  color: #333;
+  display: block;
+  font-weight: normal;
+  padding: 0.5em 2em 0.5em 1em;
+  text-align: left;
+  text-transform: none;
+  white-space: nowrap;
+}
+.drop-menu a:hover {
+  background-color: rgba(0,0,0,0.1);
+  color: #333;
+}
+/* HIDE IN THE FOOTER */
+.footer .dropdown:hover .drop-trigger:after {
+  border-color: transparent transparent #ed6e2f;
+}
+.footer .drop-trigger:after {
+  border: 0.3em solid;
+  border-color: transparent transparent #fff;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 0em;
+  width: 0;
+}
+.footer .drop-menu:after {
+  border: 0.6em solid;
+  border-color: #fff transparent transparent;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 1em;
+  bottom: -1.1em;
+  width: 0;
+  z-index: 10;
+}
+.footer .drop-menu:before {
+  display: none;
+}
+.footer-nav .drop-menu a {
+  color: #333;
+}
+.footer .drop-menu {
+  bottom: 1.5em;
+}
+
+/* MOBILE MENU */
+.mobile-menu-check,
+.show-mobile-menu {
+  display: none;
 }
 
 /* FOOTER STYLES */
@@ -167,13 +284,15 @@ p {
 .footer h3 span {
   color: #aaa;
 }
-.footer-nav li {
+.footer-nav > li {
   display: inline-block;
   margin: 2em 1em 0;
 }
 .footer-nav a {
-  color: #ccc;
+  color: #fff;
 }
+.footer-nav .nav-links
+
 
 .social-footer {
 }
@@ -542,6 +661,61 @@ p {
   .header-logo {
     left: auto;
   }
+  /* MOBILE MENU */
+  .show-mobile-menu {
+    display: block;
+    float: right;
+    font-weight: bold;
+    margin-top: 1.5vh;
+    padding: 1.5em;
+    position: relative;
+    text-transform: uppercase;
+  }
+  .header-nav {
+    background-color: #444;
+    box-sizing: border-box;
+    left: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    top: 10vh;
+    transition: all 0.5s ease-in-out;
+    z-index: 9;
+  }
+  .header-nav li {
+    display: block;
+    margin-top: 1em;
+  }
+  .header-nav li: first-child {
+    color: #fff;
+  }
+/* HIDE DROPDOWN IN THE NAV MENU */
+  .header-nav .drop-trigger {
+    padding-right: 0;
+  }
+  .header-nav .dropdown:hover .drop-menu,
+  .header-nav .drop-trigger:after {
+    display: none;
+  }
+  .header-nav li:last-child {
+    margin-bottom: 1em;
+  }
+  .mobile-menu-check:checked ~ .header-nav {
+    max-height 2000px;
+  }
+  .moble-menu-check:checked ~ .show-mobile-menu:after {
+    background-color: #000;
+    color: #ed6e2f;
+    content: "CLOSE";
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 1.5em;
+    width: 100%;
+  }
+
   /* HOME STYLES */
   .home-callout {
     flex-direction: column;
