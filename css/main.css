@@ -253,7 +253,7 @@ p {
 
 .hero-home {
   background-image: url(/images/shark.jpg);
-  /* background-position: center top; */
+  background-position: center top;
 }
 
 .hero-content {
@@ -277,6 +277,12 @@ p {
   background-color: #000;
   color: #fff;
 }
+.half-hero {
+  background-position: center center;
+  background-size: cover;
+  height: 40vh;
+}
+
 
 /* SOCIAL STYLES */
 .social-list {
@@ -291,7 +297,7 @@ p {
   color: #fff;
   display: inline-block;
   font-family: helvetica, arial, sans;
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: bold;
   height: 2.5em;
   line-height: 1;
@@ -316,13 +322,23 @@ p {
   margin-bottom: 1.5rem;
   text-align: center;
 }
+.home-section h4 {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+.home-section .post-header {
+  text-align: center;
+}
+.home-section .blog-posts {
+  margin: auto;
+  width: 75%;
+}
 .home-callout {
   align-items: center;
   background-color: #000;
   color: #fff;
   display: flex;
-  flex-direction: column-reverse;
-  padding: 7vh 0;
+  padding: 4vh 0;
 }
 .home-callout h3 {
   color: inherit;
@@ -341,6 +357,7 @@ p {
 }
 /* BIO STYLES */
 .bio-wrapper {
+  display: flex;
   font-size: 24px;
   margin: auto;
   max-width: 960px;
@@ -349,7 +366,7 @@ p {
 .bio-box {
   border: 1px solid black;
   box-sizing: border-box;
-  float: left;
+  flex: 1;
   font-size: 1rem;
   margin: 40px 1% 0;
   padding: 2%;
@@ -418,8 +435,16 @@ p {
   text-align: right;
 }
 .blog-recent-list {
-  list-style: none;
   padding: 0;
+}
+.blog-title-list {
+  list-style: none;
+}
+.blog-title-list img {
+  border-radius: 99px;
+  display: inline-block;
+  height: 2.5em;
+  vertical-align: middle;
 }
 .blog-title-list li ~ li {
   margin-top: 1.5em;
@@ -448,11 +473,59 @@ p {
   border-radius: 99px;
   display: inline-block;
   height: 2.5em;
-  vertical-align: center;
+  vertical-align: middle;
 }
 .posts-image {
   background-position: center;
   background-size: cover;
   height: 6em;
   margin-bottom: 1.5em;
+}
+.post {
+  width: 100%;
+}
+.post-content,
+.post-footer {
+  margin: auto;
+  max-width: 40em;
+  width: 85vw;
+}
+.pull-left {
+  float: left;
+  margin: 2em 2em 2em -2%;
+}
+.pull-right {
+  float: right;
+  margin: 2em -2% 2em 2em;
+}
+.post-aside {
+  background-color: rgba(0, 0, 0, 0.01);
+  float: right;
+  margin: 0 0 2em 2em;
+  padding: 2em;
+}
+.post .post-header {
+  margin-bottom: 2.5em;
+  text-align: center;
+}
+.post-content {
+  font-size: 1.1rem;
+}
+.post-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-style: italic;
+  font-size: 0.8em;
+  margin-top: 3em;
+  padding-top: 2em;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 800px) {
+  html {
+    box-shadow: none;
+    padding: 0;
+  }
+  .post-aside {
+    display: none;
+  }
 }
